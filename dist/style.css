@@ -1,0 +1,108 @@
+:root{
+  --red-hue: 360;
+  --blue-hue: 240;
+  --green-hue: 120;
+  --body-hue: var(--green-hue);
+  --main-hue : var(--blue-hue);
+  --nav-bg-color: hsl(var(--main-hue) , 50%, 50%);
+  --nav-text-color: hsl(var(--main-hue), 50%, 20%);
+  --container-bg-color: hsl(var(--main-hue) , 50%, 95%);
+  --content-text-color: hsl(var(--main-hue) , 50%, 50%);
+  --title-color: hsl(var(--main-hue) , 50%, 20%);
+  --footer-bg-color: hsl(var(--main-hue) , 93%, 88%);
+  --button-text-color: hsl(var(--main-hue), 50%, 20%);
+  --body-bg-color: hsl(var(--body-hue), 50%, 20%);
+  --shadow-color: hsl(var(--main-hue), 70%, 30%);
+  --card-shadow-color: hsl(var(--body-hue), 70%, 30%);
+  --link-color: hsl(var(--main-hue), 99%, 80%);
+}
+:root[theme='dark']{
+  --red-hue: 360;
+  --blue-hue: 240;
+  --green-hue: 120;
+  --body-hue: var(--red-hue);
+  --main-hue: var(--blue-hue);
+  --nav-bg-color: hsl(var(--main-hue), 50%, 90%);
+  --nav-text-color: hsl(var(--main-hue), 50%, 20%);
+  --container-bg-color: hsl(var(--main-hue), 50%, 95%);
+  --content-text-color: hsl(var(--main-hue), 90%, 10%);
+  --title-color: hsl(var(--main-hue), 50%, 20%);
+  --footer-bg-color: hsl(var(--main-hue), 93%, 88%);
+  --button-text-color: hsl(var(--main-hue), 50%, 20%);
+  --body-bg-color: hsl(var(--body-hue), 50%, 20%);
+  --shadow-color: hsl(var(--main-hue), 70%, 30%);
+  --card-shadow-color: hsl(var(--body-hue), 70%, 30%);
+  --link-color: hsl(var(--main-hue), 99%, 20%);
+  filter: invert(1) brightness(1);
+}
+* {
+  margin: 0;
+}
+html{
+  height: 100%;
+}
+body{
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont“Segoe UI”, “Roboto”, “Oxygen”, “Ubuntu”, “Cantarell”,
+ “Fira Sans”, “Droid Sans”, “Helvetica Neue”,sans-serif;  
+  display: flex;
+  flex-direction: column;
+  padding-top: 75px;
+}
+nav{
+  background: var(--nav-bg-color);
+  padding: 1.3rem;
+  color: var(--nav-text-color);
+  border-radius: 10px;
+  box-shadow: 3px 3px 1px var(--shadow-color);
+}
+.card{
+  background-color: var(--body-bg-color);
+  padding: 20px;
+  width: auto;
+  border-radius: 25px;
+  box-shadow: 3px 3px 1px var(--card-shadow-color);
+}
+._container{
+  flex: 0;
+  background: var(--container-bg-color);
+  padding: 1rem;
+  border-radius: 25px;
+  box-shadow: 3px 3px 1px var(--shadow-color);
+}
+p.content{
+  padding: 0.7rem;
+  font-size: 0.9rem;
+  color: var(--content-text-color);
+}
+.mylink:link{
+  font-size: 1.7rem;
+  color: var(--link-color);
+  text-shadow: 2px 2px 4px var(--card-shadow-color);
+  padding: 0.7rem;
+}
+.mylink:visited{ 
+  color: var(--link-color);
+}
+.mylink:hover{ 
+  color: var(--link-color);
+}
+.mylink:active{ 
+  color:var(--link-color);
+}
+.container h2.title{
+  padding: 1rem;
+  color: var(--title-color);
+  border-radius: 20px;
+}
+footer{
+  background: var(--footer-bg-color);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 3px 3px 1px var(--shadow-color);
+}
+input[type=button] {
+  color: var(--button-text-color);
+  padding: 0.3rem;
+  font-size: 1rem;
+}
