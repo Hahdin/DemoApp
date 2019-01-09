@@ -36,8 +36,8 @@ export const MyNavBar = ({ ...props }) => {
           </LinkContainer>
         </Nav>
         <Nav>
-          <LinkContainer to="/check">
-            <NavItem eventKey={5} >Check Domain Security</NavItem>
+          <LinkContainer to="/css">
+            <NavItem eventKey={5} >CSSOM </NavItem>
           </LinkContainer>
         </Nav>
         <Navbar.Text pullRight style={{ fontSize: '12px', marginRight: '10px' }}>

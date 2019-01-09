@@ -1,7 +1,7 @@
 import React from 'react'
 import { Router, Route } from 'react-router-dom'
-import { ThemePage, MyNavBar, SvgPage, SunMoonPage, ChartPage, CheckPage  } from './index'
-import { history} from '../helpers'
+import { ThemePage, MyNavBar, SvgPage, SunMoonPage, ChartPage, CSSPage } from './index'
+import { history } from '../helpers'
 export const App = () =>{
   return (
     <div className="container">
@@ -13,7 +13,8 @@ export const App = () =>{
           <Route path="/svg" component={SvgPage} />
           <Route path="/sun" component={SunMoonPage} />
           <Route path="/chart" component={ChartPage} />
-          <Route path="/check" component={CheckPage} />
+          <Route path="/css" component={CSSPage} />
+          {/* <Route path="/check" component={CheckPage} /> */}
         </div>
       </Router>
     </div>

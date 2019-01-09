@@ -19,7 +19,7 @@ export class SunMoonPage extends React.Component {
     }
   }
   componentWillMount() {
-    //init state
+    //  init state
     let w = window.innerWidth * .75
     let h = window.innerHeight * .75
     let r = Math.min(w, h)
@@ -36,7 +36,7 @@ export class SunMoonPage extends React.Component {
       height: h,
       radius: r,
       radii: { ...rr },
-      //svg: d3.select('space').append('svg')
+      //  svg: d3.select('space').append('svg')
     })
   }
   componentDidMount() {
@@ -46,7 +46,7 @@ export class SunMoonPage extends React.Component {
     clearInterval(this.state.timer)
   }
   draw() {
-    //Space
+    //  Space
     let svg = d3.select('#space').append('svg')
       .attr('width', this.state.width)
       .attr('height', this.state.height)
@@ -95,7 +95,7 @@ export class SunMoonPage extends React.Component {
       .attr('d', day)
       .attr('transform', 'translate(0,' + -this.state.radii.earthOrbit + ')')
       .style('fill', 'rgba(53, 110, 195, 1.0)')
-    //Moon's orbit
+    //  Moon's orbit
     svg.append('circle')
       .attr('class', 'moonOrbit')
       .attr('r', this.state.radii.moonOrbit)
@@ -121,7 +121,7 @@ export class SunMoonPage extends React.Component {
       .style('fill', 'rgba(150, 150, 150, 1.0)')
 
     let timer = setInterval(() => {
-      //let now = new Date(Date.now() - (new Date().getTimezoneOffset() * 60 * 1000))
+      //  let now = new Date(Date.now() - (new Date().getTimezoneOffset() * 60 * 1000))
       let now = new Date()
       let interpolateEarthOrbitPosition = d3.interpolate(earthOrbitPosition.endAngle()(),
         (2 * Math.PI * d3.timeHours(d3.timeYear.floor(now), now).length / d3.timeHours(d3.timeYear.floor(now), d3.timeYear.ceil(now)).length))
@@ -167,13 +167,13 @@ export class SunMoonPage extends React.Component {
           d3.select('.moon')
             .attr('transform', 'translate(' +
               (this.state.radii.earthOrbit * Math.sin(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) +
-                this.state.radii.moonOrbit * Math.sin(interpolateMoonOrbitPosition(t) - moonOrbitPosition.startAngle()())) + ','
-              + (-this.state.radii.earthOrbit * Math.cos(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) +
+                this.state.radii.moonOrbit * Math.sin(interpolateMoonOrbitPosition(t) - moonOrbitPosition.startAngle()())) + ',' +
+              (-this.state.radii.earthOrbit * Math.cos(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) +
                 -this.state.radii.moonOrbit * Math.cos(interpolateMoonOrbitPosition(t) - moonOrbitPosition.startAngle()())) + ')')
         }
       })
     }, 1000)
-    this.setState({timer: timer})
+    this.setState({ timer: timer })
   }
   render() {
     return (
