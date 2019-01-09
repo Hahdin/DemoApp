@@ -1,3 +1,7 @@
 export * from './App'
 export * from './ThemePage'
 export * from './MyNavBar'
+export * from './SvgPage'
+export * from './SunMoonPage'
+export * from './ChartPage'
+export * from './CheckPage'

@@ -15,9 +15,29 @@ export const MyNavBar = ({ ...props }) => {
         <Navbar.Toggle />
       </Navbar.Header>
       <Navbar.Collapse>
-        <Nav>
+      <Nav>
           <LinkContainer to="/theme">
             <NavItem eventKey={1} >Dynamic CSS Theme</NavItem>
+          </LinkContainer>
+        </Nav>
+        <Nav>
+          <LinkContainer to="/svg">
+            <NavItem eventKey={2} >SVG</NavItem>
+          </LinkContainer>
+        </Nav>
+        <Nav>
+          <LinkContainer to="/sun">
+            <NavItem eventKey={3} >Sun / Moon</NavItem>
+          </LinkContainer>
+        </Nav>
+        <Nav>
+          <LinkContainer to="/chart">
+            <NavItem eventKey={4} >Chart</NavItem>
+          </LinkContainer>
+        </Nav>
+        <Nav>
+          <LinkContainer to="/check">
+            <NavItem eventKey={5} >Check Domain Security</NavItem>
           </LinkContainer>
         </Nav>
         <Navbar.Text pullRight style={{ fontSize: '12px', marginRight: '10px' }}>

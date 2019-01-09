@@ -47,7 +47,7 @@ body{
  “Fira Sans”, “Droid Sans”, “Helvetica Neue”,sans-serif;  
   display: flex;
   flex-direction: column;
-  padding-top: 75px;
+  padding-top: 85px;
 }
 nav{
   background: var(--nav-bg-color);
@@ -105,4 +105,19 @@ input[type=button] {
   color: var(--button-text-color);
   padding: 0.3rem;
   font-size: 1rem;
+}
+#bar{
+  border: 1px solid black;
+  width: 76vw;
+  height: 76vh;
+}
+#space{
+  border: 1px solid black;
+  background-color: black;
+  width: 76vw;
+  height: 76vh;
+}
+#gchart{
+  width: 1000px;
+  height: 1000px;
 }
