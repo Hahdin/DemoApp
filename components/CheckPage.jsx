@@ -78,15 +78,20 @@ export class CheckPage extends React.Component {
   componentWillUnmount () {
   }
   async checkDomain () {
-    let p = await window.fetch(this.state.domain).catch(reason => {
-      return reason
-    })
-    let ce = new Event('fetch', { bubbles: true })
-    ce.custom_object = p
-    ce.custom_object.domain = this.state.domain
-    document.getElementById('event_').dispatchEvent(ce)
-    return p
-  }
+    try{
+      let p = await window.fetch(this.state.domain).catch(reason => {
+        return reason
+      })
+      let ce = new Event('fetch', { bubbles: true })
+      ce.custom_object = p
+      ce.custom_object.domain = this.state.domain
+      document.getElementById('event_').dispatchEvent(ce)
+      return p
+    }
+    catch(e){
+      return e
+    }
+}
   handleChange (e) {
     this.setState({ domain: e.target.value })
   }
