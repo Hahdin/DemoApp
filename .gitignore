@@ -28,8 +28,7 @@ coverage
 tests/*.js
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
-dist/mybundle.js
-package-lock.json
+dist/bundle.js
 notes.txt
 
 # Dependency directories
