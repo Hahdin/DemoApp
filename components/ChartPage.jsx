@@ -62,8 +62,6 @@ export class ChartPage extends React.Component {
     const data = GoogleCharts.api.visualization.arrayToDataTable(raw)
     let options = {
       title: 'Your Sensor Readings',
-      // width: window.innerWidth *.75,
-      //  height: window.innerHeight ,
       curveType: 'function',
       legend: { position: 'bottom' },
       hAxis: {
@@ -79,11 +77,9 @@ export class ChartPage extends React.Component {
       },
       vAxis: {
         minValue: 80000,
-        // ticks: [0,10000,20000,30000,40000,50000,60000,70000,80000,90000,100000,110000,120000],
         gridlines: {
           color: '#ff0000',
           count: 100,
-
         },
         minorGridlines: {
           color: '#00ff00',
@@ -92,7 +88,7 @@ export class ChartPage extends React.Component {
       }
     }
     let chart = new google.visualization.LineChart(document.getElementById('gchart'))
-    //  let chart = new google.visualization.AreaChart(document.getElementById('gchart'));
+    //  or AreaChart
     chart.draw(data, options)
     this.setState({ chart: chart })
   }

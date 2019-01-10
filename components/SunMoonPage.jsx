@@ -36,7 +36,6 @@ export class SunMoonPage extends React.Component {
       height: h,
       radius: r,
       radii: { ...rr },
-      //  svg: d3.select('space').append('svg')
     })
   }
   componentDidMount() {
@@ -58,7 +57,6 @@ export class SunMoonPage extends React.Component {
       .style('background', '#dff0d8')
       .attr('r', this.state.radii.sun)
       .attr('fill', 'rgba(255, 204, 0, 1.0)')
-
     // Earth's orbit
     svg.append('circle')
       .attr('class', 'earthOrbit')
@@ -72,12 +70,10 @@ export class SunMoonPage extends React.Component {
       .startAngle(0)
       .endAngle(0)
 
-
     svg.append('path')
       .attr('class', 'earthOrbitPosition')
       .attr('d', earthOrbitPosition)
       .style('fill', 'rgba(255, 0, 0, 0.75)')
-
     // Earth
     svg.append('circle')
       .attr('class', 'earth')
@@ -121,7 +117,6 @@ export class SunMoonPage extends React.Component {
       .style('fill', 'rgba(150, 150, 150, 1.0)')
 
     let timer = setInterval(() => {
-      //  let now = new Date(Date.now() - (new Date().getTimezoneOffset() * 60 * 1000))
       let now = new Date()
       let interpolateEarthOrbitPosition = d3.interpolate(earthOrbitPosition.endAngle()(),
         (2 * Math.PI * d3.timeHours(d3.timeYear.floor(now), now).length / d3.timeHours(d3.timeYear.floor(now), d3.timeYear.ceil(now)).length))
@@ -134,13 +129,11 @@ export class SunMoonPage extends React.Component {
           // Animate Earth orbit position
           d3.select('.earthOrbitPosition')
             .attr('d', earthOrbitPosition.endAngle(interpolateEarthOrbitPosition(t)));
-
           // Transition Earth
           d3.select('.earth')
             .attr('transform', 'translate(' +
               this.state.radii.earthOrbit * Math.sin(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) +
               ',' + -this.state.radii.earthOrbit * Math.cos(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) + ')')
-
           // Animate day
           // Transition day
           d3.select('.day')
@@ -148,13 +141,11 @@ export class SunMoonPage extends React.Component {
             .attr('transform', 'translate(' +
               this.state.radii.earthOrbit * Math.sin(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) +
               ',' + -this.state.radii.earthOrbit * Math.cos(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) + ')')
-
           // Transition Moon orbit
           d3.select('.moonOrbit')
             .attr('transform', 'translate(' +
               this.state.radii.earthOrbit * Math.sin(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) +
               ',' + -this.state.radii.earthOrbit * Math.cos(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) + ')')
-
           // Animate Moon orbit position
           // Transition Moon orbit position
           d3.select('.moonOrbitPosition')
@@ -162,7 +153,6 @@ export class SunMoonPage extends React.Component {
             .attr('transform', 'translate(' +
               this.state.radii.earthOrbit * Math.sin(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) +
               ',' + -this.state.radii.earthOrbit * Math.cos(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) + ')');
-
           // Transition Moon
           d3.select('.moon')
             .attr('transform', 'translate(' +

@@ -27,83 +27,16 @@ export class SvgPage extends React.Component {
       chartData: chartData
     })
   }
-  // chart1 ()  {
-  //   let h = window.innerHeight * .75
-  //   let w = window.innerWidth* .75
-  //   let barW = 15
-  //   let barOff = 2
-  //   getData(w / (barW + barOff))
-  //   let _d = chartData
-
-  //   let yScale = d3.scaleLinear()
-  //       .domain([0, d3.max(_d)])
-  //       .range([0, h])
-
-  //   let xScale = d3.scaleBand()
-  //   .domain(d3.range(0, _d.length))
-  //   .rangeRound([0, w])
-  //   let xTimeScale = d3.scaleTime().rangeRound([0, _d.length])
-
-  //   let colors = d3.scaleLinear()
-  //   .domain([0, _d.length*.33, _d.length*.66, _d.length])
-  //     // .range(['#d6e9c6', '#bce8f1', '#faebcc', '#ebccd1'])
-  //     // .range(['#FF0000', '#FFFF00', '#00FF00', '#00FFFF', '#0000FF'])
-  //     // .range(['#FFFFFF', '#CCCCCC', '#999999', '#444444', '#000000'])
-  //     .range(['#FFcccc', '#ccFFcc', '#ccccFF'])
-  //     // .range(['#000000', '#FF0000', '#000000'])
-  //   let cur = d3.select('#bar')
-  //   let svg = cur.select('svg')
-  //   svg.remove()
-  //   svg = d3.select('#bar').append('svg')
-  //   //  d3.select('#bar').append('svg')
-  //   let scaleGroup = svg.append('scalegroup').attr('transform', 'translate(0,0)' )
-  //   // var line = d3.line()
-  //   // .x(function(d, i) { return Date.now()})
-  //   // .y(function(d) { return yScale(d) })
-  //   scaleGroup.append('g')
-  //   .attr('transform', 'translate(0,' + h + ')')
-  //   .call(d3.axisBottom(xScale))
-  //   .select('.domain')
-  //   .remove();
-  //   svg
-  //     .attr('width', w)
-  //     .attr('height', h)
-  //     .style('background', '#dff0d8')
-  //     .selectAll('rect').data(chartData)
-  //     .enter().append('rect')
-  //     .attr('fill',  (data,i) =>{return colors(i)})
-  //     .attr('stroke', '#000000')
-  //     .attr('stroke-width', '0.5')
-  //     .attr('width', barW)
-  //     .attr('height', (data) =>{
-  //       return yScale(data)
-  //     })
-  //     .attr('x', (data, i) =>{
-  //       return i * (barW + barOff)
-  //       //  return Date.now()
-  //     })
-  //     .attr('y', (data) =>{
-  //       return h - yScale(data)
-  //     })
-  // }
 
   getLineData () {
     let chartData = []
     let data = []
-    // let i = -299
-    // let time = Date.now()
-
     //  Inspired by Lee Byron’s test data generator. - http://  leebyron.com/streamgraph/
     let m = 300
     let count = 300
-
-    // while(count--){
-    //   data[m-count + 1 ] = 0.1 + 0.1 * Math.random()
-    // }
     for (let i = 0; i < m; ++i) {
       data[i] = 0.1 + 0.1 * Math.random()
     }
-
     //  5 bumps
     count = 15
     let final = []
@@ -119,11 +52,6 @@ export class SvgPage extends React.Component {
     }
 
     let value = this.state.value
-    // for (; i <= 0; i += 1) {
-    //   let inc = -25 + (Math.random() * 50)
-    //   value = value + inc
-    //   data.push({date: time + i * 1000, value: value})
-    // }
     chartData = [...final]
     this.setState({
       value: value,
@@ -146,8 +74,6 @@ export class SvgPage extends React.Component {
     if (chartData.length >= 300) {
       chartData.splice(0, chartData.length - 299)
     }
-    // let inc = -25 + (Math.random() * 50)
-    // value = value + inc
     value = this.getSmooth()
     chartData.push({ date: Date.now(), value: value })
     this.setState({
@@ -212,7 +138,6 @@ export class SvgPage extends React.Component {
     //  append line
     g.append('path')
       .datum(data)
-      // .attr('fill', `rgb(${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)})`)
       .attr('fill', 'rgba(255,0,0,0.3)')
       .attr('fill', 'none')
       .attr('stroke', 'steelblue')
@@ -220,8 +145,6 @@ export class SvgPage extends React.Component {
       .attr('stroke-linecap', 'round')
       .attr('stroke-width', 1.5)
       .attr('d', line)
-
-    //  add small gauge chart
   }
 
   componentWillMount () {
